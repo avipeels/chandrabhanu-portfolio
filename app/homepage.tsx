@@ -1,11 +1,12 @@
 import Image from 'next/image';
 import ProjectCard from './components/ProjectCard';
+import Navigation from './components/Navigation';
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <div className="relative h-[60vh] min-h-[300px] max-h-[500px] w-full md:h-[70vh] md:max-h-[600px] lg:h-[348px] lg:max-h-none">
+      <div className="relative h-[300px] min-h-[300px] max-h-[300px] w-full md:h-[70vh] md:max-h-[600px] lg:h-[348px] lg:max-h-none">
         <div className="absolute inset-0">
           <Image 
             src="/images/hero-bg-253212.png" 
@@ -14,30 +15,16 @@ export default function Home() {
             className="object-cover object-center"
             priority
             sizes="100vw"
+            quality={85}
+            placeholder="blur"
+            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwA/8A8A"
           />
         </div>
         
         {/* Navigation */}
-        <div className="relative z-10 flex flex-col lg:flex-row lg:items-center lg:justify-between px-4 md:px-8 lg:px-[299px] pt-[20vh] lg:pt-[360px]">
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between w-full mb-6 lg:mb-0 bg-white/90 backdrop-blur-sm p-4 md:p-6 lg:bg-transparent lg:backdrop-blur-none lg:p-0 rounded-lg lg:rounded-none">
-            <h1 className="font-montserrat-subrayada text-[20px] md:text-[22px] lg:text-[24px] leading-[24.38px] md:leading-[26.82px] lg:leading-[29.26px] text-black">
-              Chandra bhanu
-            </h1>
-            <nav className="flex items-center space-x-4 lg:space-x-6 mt-4 lg:mt-0">
-              <a href="#" className="font-montserrat text-[14px] md:text-[15px] lg:text-[16px] leading-[17.07px] md:leading-[18.29px] lg:leading-[19.5px] text-[#F63B3B]">
-                Work
-              </a>
-              <a href="#" className="font-montserrat text-[14px] md:text-[15px] lg:text-[16px] leading-[17.07px] md:leading-[18.29px] lg:leading-[19.5px] text-black">
-                About
-              </a>
-            </nav>
-          </div>
-          
-        </div>
-        <div className="px-4 md:px-8 lg:px-[299px] mt-[15px]">
-          <p className="font-montserrat text-[14px] md:text-[15px] lg:text-[16px] leading-[17.07px] md:leading-[18.29px] lg:leading-[19.5px] text-black max-w-full lg:max-w-[655px] bg-white/90 backdrop-blur-sm p-4 md:p-6 lg:bg-transparent lg:backdrop-blur-none lg:p-0 rounded-lg lg:rounded-none">
-            Architecture | Board Game design | Experience Design | UX Design | Visual Design
-          </p>
+        <div className="relative z-10 px-4 md:px-8 lg:px-[299px] pt-[20vh] lg:pt-[360px]">
+          <Navigation variant="mobile" />
+          <Navigation variant="desktop" />
         </div>
       </div>
 
