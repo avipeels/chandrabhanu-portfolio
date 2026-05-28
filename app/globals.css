@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+/* Local Montserrat Subrayada Font */
+@font-face {
+  font-family: 'Montserrat Subrayada';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/montserrat-subrayada-regular.ttf') format('truetype');
+  font-display: swap;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -11,7 +20,6 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-montserrat: var(--font-montserrat);
-  --font-montserrat-subrayada: var(--font-montserrat-subrayada);
 }
 
 body {
@@ -26,5 +34,5 @@ body {
 }
 
 .font-montserrat-subrayada {
-  font-family: var(--font-montserrat-subrayada), sans-serif;
+  font-family: 'Montserrat Subrayada', sans-serif;
 }
