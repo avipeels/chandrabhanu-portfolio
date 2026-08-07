@@ -14,8 +14,8 @@ export default function Navigation() {
           </ul>
         </nav>
       </div>
-      <p className="mt-3 max-w-3xl text-sm leading-relaxed text-black sm:text-base">
-        {disciplines.join(' · ')}
+      <p className="mt-3 max-w-3xl text-base leading-4 font-normal text-black">
+        {disciplines.join(' | ')}
       </p>
     </header>
   );
