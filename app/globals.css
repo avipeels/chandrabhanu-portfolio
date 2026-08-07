@@ -16,7 +16,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-montserrat: Arial, Helvetica, sans-serif;
+  --font-montserrat: 'Montserrat', Arial, Helvetica, sans-serif;
 }
 
 html {
