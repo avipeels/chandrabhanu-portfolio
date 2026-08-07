@@ -27,12 +27,6 @@ export default function Homepage() {
           {projects.map((project) => <ProjectCard key={project.title} project={project} />)}
         </div>
       </section>
-      <section id="about" aria-labelledby="about-title" className="scroll-mt-6 border-t border-black/10 bg-stone-50">
-        <div className="mx-auto grid max-w-[1728px] gap-8 px-5 py-16 sm:px-8 sm:py-20 lg:grid-cols-3 lg:px-16 xl:px-24">
-          <h2 id="about-title" className="font-montserrat text-2xl font-bold tracking-[-0.03em] sm:text-3xl">About</h2>
-          <p className="max-w-2xl font-montserrat text-xl leading-relaxed text-black/80 lg:col-span-2">Chandra Bhanu is a multidisciplinary designer exploring the relationship between spaces, systems, and the people who move through them.</p>
-        </div>
-      </section>
     </main>
   );
 }
