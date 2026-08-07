@@ -1,19 +1,20 @@
 import Link from 'next/link';
+import { disciplines } from './portfolio-data';
+import PortfolioIdentity from './PortfolioIdentity';
 
 interface NavigationProps {
   active?: 'work' | 'about';
+  roles?: string;
 }
 
-export default function Navigation({ active = 'work' }: NavigationProps) {
+export default function Navigation({ active = 'work', roles = disciplines.join(' | ') }: NavigationProps) {
   const workHref = active === 'about' ? '/#work' : '#work';
   const brandHref = active === 'about' ? '/' : '#work';
 
   return (
     <header className="font-montserrat">
-      <div className="flex flex-wrap items-baseline justify-between gap-x-8 gap-y-4">
-        <Link href={brandHref} className="text-2xl font-bold uppercase leading-none text-[#165C12] transition-opacity hover:opacity-70 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#165C12] sm:text-[32px]">
-          Chandra Bhanu
-        </Link>
+      <div className="flex flex-wrap items-start justify-between gap-x-8 gap-y-4">
+        <PortfolioIdentity href={brandHref} roles={roles} />
         <nav aria-label="Primary navigation">
           <ul className="flex items-center gap-6 text-sm sm:gap-8 sm:text-base">
             <li>
@@ -29,9 +30,6 @@ export default function Navigation({ active = 'work' }: NavigationProps) {
           </ul>
         </nav>
       </div>
-      {/* <p className="mt-3 max-w-3xl text-base leading-4 font-normal text-black">
-        {tagline}
-      </p> */}
     </header>
   );
 }

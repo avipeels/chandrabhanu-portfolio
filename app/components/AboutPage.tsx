@@ -3,15 +3,15 @@ import Navigation from './Navigation';
 import { aboutTimeline, contactLinks } from './about-data';
 
 const portraitImages = [
-  { src: '/images/school-project-2068ee.png', alt: 'Portrait placeholder from the portfolio image set' },
-  { src: '/images/tokyo-anti-library.png', alt: 'Landscape placeholder from the portfolio image set' },
-  { src: '/images/drawings-514a7a.png', alt: 'Sketch placeholder from the portfolio image set' },
-  { src: '/images/board-game-29108c.png', alt: 'Project image placeholder from the portfolio image set' },
+  { src: '/images/about_1.png', alt: 'Chandra working at a desk', width: 241, height: 181, position: 'left-0 top-[5.58%] w-[46.35%]' },
+  { src: '/images/about_2.png', alt: 'Two people standing by the sea', width: 205, height: 205, position: 'left-[50.96%] top-0 w-[39.42%]' },
+  { src: '/images/about_3.png', alt: 'Chandra holding a stone outdoors', width: 185, height: 246, position: 'left-[14.62%] top-[53.49%] w-[35.58%]' },
+  { src: '/images/about_4.png', alt: 'Portrait of Chandra', width: 185, height: 199, position: 'left-[55%] top-[53.49%] w-[35.58%]' },
 ] as const;
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-[#f7f7f7] text-black">
+    <main className="min-h-screen overflow-x-hidden bg-[#f7f7f7] text-black">
       <section aria-label="About page image banner" className="mx-auto max-w-[1580px] px-4 pt-4 sm:px-8 lg:px-14 lg:pt-8">
         <div className="relative aspect-[1728/230] w-full overflow-hidden">
           <Image src="/images/about_header.png" alt="Trees, flowers, and a dragonfly arranged in a panoramic collage" fill priority sizes="100vw" className="object-cover" />
@@ -20,30 +20,28 @@ export default function AboutPage() {
 
       <section className="relative mx-auto max-w-[1240px] px-6 pb-16 pt-7 sm:px-10 lg:px-0 lg:pb-24 lg:pt-8">
         <div className="pointer-events-none absolute right-[-8%] top-14 hidden h-32 w-[36%] rounded-[50%] border-t-4 border-[#b9e1ff] lg:block" aria-hidden="true" />
-        <Navigation active="about" />
+        <Navigation active="about" roles="Designer | Thinker | Maker | Explorer | Mentor | Mother of a toddler" />
 
-        <div className="mx-auto mt-16 grid max-w-[1040px] items-center gap-12 lg:grid-cols-[390px_1fr] lg:gap-16 lg:mt-20">
-          <div className="grid grid-cols-2 items-start gap-4 sm:gap-5">
-            {portraitImages.map((image, index) => (
-              <div key={image.src} className={`relative overflow-hidden bg-neutral-200 grayscale ${index === 1 ? 'mt-[-20px]' : ''} ${index === 2 ? 'ml-8' : ''}`}>
-                <Image src={image.src} alt={image.alt} width={420} height={420} className="h-full w-full object-cover" sizes="(max-width: 1023px) 42vw, 190px" />
-              </div>
+        <div className="mx-auto mt-12 grid w-full max-w-[1120px] items-center gap-10 md:mt-16 md:grid-cols-2 md:gap-8 lg:mt-20 lg:grid-cols-[520px_minmax(0,1fr)] lg:gap-16">
+          <div className="relative mx-auto aspect-[520/430] w-full max-w-[520px]">
+            {portraitImages.map((image) => (
+              <Image key={image.src} src={image.src} alt={image.alt} width={image.width} height={image.height} className={`absolute h-auto object-cover grayscale ${image.position}`} sizes="(max-width: 639px) 90vw, 520px" />
             ))}
           </div>
-          <div className="max-w-[520px] space-y-6 text-base leading-[1.18] sm:text-lg">
+          <div className="min-w-0 max-w-[520px] space-y-6 text-base leading-[1.25] sm:text-lg">
             <p>My design journey hasn&apos;t been a straight line, and that is exactly my greatest asset. As an architect who has naturally expanded into visual and UX design, my career has been shaped by rich, cross-disciplinary explorations. Even my teaching experience has helped in strengthening my foundation in design.</p>
             <p>By keeping the user at the absolute centre of my process, I translate complex spatial and digital challenges into seamless, enriching experiences.</p>
           </div>
         </div>
       </section>
 
-      <section aria-labelledby="journey-title" className="mx-auto max-w-[1080px] px-6 pb-20 sm:px-10 lg:px-0 lg:pb-28">
-        <h1 id="journey-title" className="mb-12 text-center font-montserrat text-2xl font-bold text-[#165C12] sm:text-3xl">The journey so far!</h1>
+      <section aria-labelledby="journey-title" className="mx-auto w-full max-w-[1080px] px-4 pb-20 sm:px-8 lg:px-0 lg:pb-28">
+        <h1 id="journey-title" className="mb-8 text-center font-montserrat text-2xl font-bold text-[#165C12] sm:mb-12 sm:text-3xl">The journey so far!</h1>
         <div className="space-y-0">
           {aboutTimeline.map((entry, index) => (
-            <div key={`${entry.year}-${index}`} className="grid gap-4 border-b border-black/60 py-5 md:grid-cols-[360px_1fr] md:gap-12">
-              <p className="self-center text-center font-montserrat-subrayada text-sm leading-[1.1] text-[#165C12] sm:text-base">{entry.annotation}</p>
-              <div className="font-montserrat text-sm leading-[1.3] sm:text-base">
+            <div key={`${entry.year}-${index}`} className="grid min-w-0 gap-4 border-b border-black/60 py-5 md:grid-cols-[minmax(220px,0.8fr)_minmax(0,1.2fr)] md:gap-8 lg:grid-cols-[360px_minmax(0,1fr)] lg:gap-12">
+              <p className="min-w-0 self-center break-words text-center font-montserrat-subrayada text-xs leading-[1.2] text-[#165C12] sm:text-sm md:text-base">{entry.annotation}</p>
+              <div className="min-w-0 font-montserrat text-sm leading-[1.3] sm:text-base">
                 {entry.year && <p className="mb-2 font-bold">{entry.year}</p>}
                 {entry.details.map((detail) => <p key={detail} className="font-semibold">{detail}</p>)}
               </div>
@@ -66,7 +64,7 @@ export default function AboutPage() {
 
       <section aria-label="Closing image" className="mx-auto max-w-[1580px] px-4 pb-8 sm:px-8 lg:px-14 lg:pb-14">
         <div className="relative aspect-[16/5] min-h-[220px] overflow-hidden sm:min-h-[320px] lg:min-h-0">
-          <Image src="/images/hero-bg-253212.png" alt="Abstract architectural collage" fill sizes="100vw" className="object-cover object-left grayscale" />
+          <Image src="/images/about_footer.png" alt="Abstract architectural collage" fill sizes="100vw" className="object-cover object-left grayscale" />
         </div>
       </section>
     </main>
