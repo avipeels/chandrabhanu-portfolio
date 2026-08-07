@@ -11,7 +11,7 @@ This is a portfolio-page reference. Do not use the source Movie Theatre App scre
 
 - Figma file: `wdCcgjyCw5oqF2z2NHECF5` — *1. Movie Theatre App - 07.03*
 - Page: `Final Portfolio` (`509:97`)
-- Card grid source: `Group 155` (`549:59`), with six exported card artworks now stored under `public/images/figma-*.svg`.
+- Card grid source: `Group 155` (`549:59`). The implementation uses semantic card markup with image assets under `public/images`, rather than retaining flattened card exports.
 - The Movie Ticket Booking App appears as the middle card on `Home page option 5` (`509:158`), alongside Navigation App for Indian Cities, Tokyo Anti-Library, Sankalp School, Urban Simulation Board Game, and Drawings.
 - The previously linked `521:39` node is a flattened image inside `Project 6` (the navigation-app case study). It is not the Movie Ticket Booking App source and should not drive this page's styling.
 
