@@ -15,7 +15,6 @@ This follows Vercel's current guidance: the former standalone `next-best-practic
 2. Make the smallest focused change. Keep page composition in `app/` and reusable UI in `app/components/`.
 3. Use framework primitives: `next/image`, `next/font`, `next/link`, and the Metadata API when applicable.
 4. Check responsive behavior, semantic structure, keyboard access, and image/font loading.
-5. Run `yarn lint`; additionally run `yarn build` when the change affects routes, server/client boundaries, or configuration.
 
 ## Guardrails
 

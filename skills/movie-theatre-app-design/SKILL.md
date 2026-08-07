@@ -11,6 +11,7 @@ This is a portfolio-page reference. Do not use the source Movie Theatre App scre
 
 - Figma file: `wdCcgjyCw5oqF2z2NHECF5` — *1. Movie Theatre App - 07.03*
 - Page: `Final Portfolio` (`509:97`)
+- Card grid source: `Group 155` (`549:59`), with six exported card artworks now stored under `public/images/figma-*.svg`.
 - The Movie Ticket Booking App appears as the middle card on `Home page option 5` (`509:158`), alongside Navigation App for Indian Cities, Tokyo Anti-Library, Sankalp School, Urban Simulation Board Game, and Drawings.
 - The previously linked `521:39` node is a flattened image inside `Project 6` (the navigation-app case study). It is not the Movie Ticket Booking App source and should not drive this page's styling.
 
@@ -29,6 +30,7 @@ This is a portfolio-page reference. Do not use the source Movie Theatre App scre
 - Default text: black (`#000000`).
 - Active identity and navigation accent: dark green (`#165C12`). This is the main portfolio accent; do not replace it with the movie app's magenta.
 - Card title band: dark green matching the identity accent, with white uppercase title text.
+- In the web implementation, keep the year outside the image frame and the title band static; only the image layer should scale on hover.
 - Imagery is editorial and image-led; preserve the artwork crop and let the green title block provide the stable label area.
 - The design is intentionally airy and asymmetric: large margins, a broad hero image, and compact project cards surrounded by white space.
 

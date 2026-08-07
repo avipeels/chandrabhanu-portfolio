@@ -25,7 +25,6 @@ export default function Homepage() {
         <h1 id="work-title" className="sr-only">Selected work</h1>
         <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-[70px] lg:gap-y-[72px]">
           {projects.map((project) => <ProjectCard key={project.title} project={project} />)}
-          <div className="flex min-h-[330px] items-end bg-[#D9D9D9] p-5 sm:p-6" aria-label="More projects coming soon"><p className="font-montserrat text-sm text-black/60">More work<br />coming soon.</p></div>
         </div>
       </section>
       <section id="about" aria-labelledby="about-title" className="scroll-mt-6 border-t border-black/10 bg-stone-50">
