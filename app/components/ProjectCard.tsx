@@ -1,53 +1,16 @@
 import Image from 'next/image';
+import type { Project } from './portfolio-data';
 
-interface ProjectCardProps {
-  title: string;
-  year?: string;
-  imageSrc: string;
-  imageAlt: string;
-  position?: 'top' | 'bottom';
-}
+interface ProjectCardProps { project: Project; }
 
-export default function ProjectCard({ 
-  title, 
-  year, 
-  imageSrc, 
-  imageAlt, 
-  position = 'top' 
-}: ProjectCardProps) {
+export default function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <div className="relative w-full max-w-[330px] h-[250px] sm:h-[280px] lg:h-[330px] group">
-      <Image 
-        src={imageSrc}
-        alt={imageAlt}
-        fill
-        className="object-cover object-center"
-        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-      />
-      
-      {/* Desktop: Show content on hover */}
-      <div className="hidden lg:block absolute inset-0 bg-gradient-to-b from-[#1E1E1E] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-        <div className={`absolute ${position === 'top' ? 'top-0' : 'bottom-0'} left-0 p-4 text-white`}>
-          {year && (
-            <p className="font-montserrat text-[16px] leading-[19.5px]">{year}</p>
-          )}
-          <h3 className="font-montserrat font-bold text-[24px] leading-[29.26px] mt-1">
-            {title}
-          </h3>
-        </div>
+    <article className="group relative aspect-square w-full overflow-hidden bg-neutral-100">
+      <Image src={project.image.src} alt={project.image.alt} fill className="object-cover transition-transform duration-500 ease-out motion-reduce:transition-none sm:group-hover:scale-[1.03]" sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, (max-width: 1440px) 33vw, 330px" />
+      <div className="absolute inset-x-0 top-0 bg-gradient-to-b from-black/70 via-black/20 to-transparent p-5 text-white sm:p-6">
+        {project.year && <p className="font-montserrat text-sm">{project.year}</p>}
+        <h3 className="mt-1 max-w-[15ch] font-montserrat text-xl font-bold leading-tight sm:text-2xl">{project.title}</h3>
       </div>
-      
-      {/* Mobile & Tablet: Show content directly */}
-      <div className="lg:hidden absolute inset-0 bg-gradient-to-b from-[#1E1E1E] to-transparent opacity-100">
-        <div className={`absolute ${position === 'top' ? 'top-0' : 'bottom-0'} left-0 p-4 text-white`}>
-          {year && (
-            <p className="font-montserrat text-[16px] leading-[19.5px]">{year}</p>
-          )}
-          <h3 className="font-montserrat font-bold text-[24px] leading-[29.26px] mt-1">
-            {title}
-          </h3>
-        </div>
-      </div>
-    </div>
+    </article>
   );
 }
