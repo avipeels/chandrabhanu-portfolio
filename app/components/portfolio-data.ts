@@ -10,7 +10,7 @@ export const disciplines = [
 ] as const;
 
 export const projects: readonly Project[] = [
-  { title: 'Navigation App for Indian Cities', year: '2026', image: { src: '/images/figma-navigation-source.png', alt: 'Navigation App for Indian Cities project card' } },
+  { title: 'Navigation App for Indian Cities', year: '2026', href: '/work/navigation-app-for-indian-cities', image: { src: '/images/figma-navigation-source.png', alt: 'Navigation App for Indian Cities project card' } },
   { title: 'Movie Ticket Booking App', year: '2025', image: { src: '/images/board-game-29108c.png', alt: 'Movie Ticket Booking App project card' } },
   { title: 'Tokyo Anti-Library', year: '2018', href: '/work/tokyo-anti-library', image: { src: '/images/tokyo-anti-library.png', alt: 'Tokyo Anti-Library project card' } },
   { title: 'Sankalp School', year: '2018', href: '/work/sankalp-school', image: { src: '/images/school-project-2068ee.png', alt: 'Sankalp School project card' } },
