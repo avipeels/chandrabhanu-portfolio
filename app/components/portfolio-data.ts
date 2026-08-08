@@ -15,5 +15,5 @@ export const projects: readonly Project[] = [
   { title: 'Tokyo Anti-Library', year: '2018', href: '/work/tokyo-anti-library', image: { src: '/images/tokyo-anti-library.png', alt: 'Tokyo Anti-Library project card' } },
   { title: 'Sankalp School', year: '2018', href: '/work/sankalp-school', image: { src: '/images/school-project-2068ee.png', alt: 'Sankalp School project card' } },
   { title: 'Urban Simulation Board Game', year: '2016', image: { src: '/images/figma-urban-source.png', alt: 'Urban Simulation Board Game project card' } },
-  { title: 'Drawings', image: { src: '/images/drawings-514a7a.png', alt: 'Drawings project card' } },
+  { title: 'Drawings', href: '/work/drawings', image: { src: '/images/drawings-514a7a.png', alt: 'Drawings project card' } },
 ];
