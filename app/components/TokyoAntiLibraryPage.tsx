@@ -36,8 +36,8 @@ export default function TokyoAntiLibraryPage() {
 
           <section aria-labelledby="investigation-title" className="pt-8 sm:pt-8">
             <h2 id="investigation-title" className="font-montserrat text-base font-bold uppercase sm:text-lg">Initial enquiry and investigation</h2>
-            <div className="mt-7 grid gap-6 lg:max-w-[1168px] lg:grid-cols-3">
-              {inquiryNotes.map((note) => <div key={note} className="sticky-note relative flex h-[176px] w-full max-w-none items-center justify-center justify-self-center overflow-hidden bg-[#fff229] px-5 pr-16 text-center font-handwriting text-base leading-[1.2] sm:px-8 sm:pr-[4.5rem] sm:text-lg lg:max-w-[352px] lg:justify-self-start"><span className="sticky-note-fold absolute right-0 top-0 z-20 size-[72px] bg-white" aria-hidden="true" /><span className="sticky-note-fold-inner absolute right-[6px] top-[6px] z-20 size-[60px] bg-[#fff229]" aria-hidden="true" /><span className="relative z-10 max-w-[245px]">{note}</span></div>)}
+            <div className="mt-7 grid w-full gap-6 lg:grid-cols-3">
+              {inquiryNotes.map((note) => <div key={note} className="sticky-note relative flex h-[176px] w-full max-w-none items-center justify-center justify-self-center overflow-hidden bg-[#fff229] px-5 pr-16 text-center font-handwriting text-base leading-[1.2] sm:px-8 sm:pr-[4.5rem] sm:text-lg lg:justify-self-start"><span className="sticky-note-fold absolute right-0 top-0 z-20 size-[72px] bg-white" aria-hidden="true" /><span className="sticky-note-fold-inner absolute right-[6px] top-[6px] z-20 size-[60px] bg-[#fff229]" aria-hidden="true" /><span className="relative z-10 max-w-[245px]">{note}</span></div>)}
             </div>
             <p className="mt-8 text-xs leading-[1.35] sm:text-sm">In order to answer these questions we wanted to first get a broader understanding of the impact of digitization on physical spaces by making an evolution diagram of libraries.</p>
             <div className="mt-4 lg:relative lg:left-1/2 lg:ml-6 lg:w-[1260px] lg:max-w-[calc(100vw-8rem)] lg:-translate-x-1/2">
@@ -72,9 +72,9 @@ export default function TokyoAntiLibraryPage() {
                 <Image src="/images/tokyo_6.png" alt="MyLib mobile library app screens" fill sizes="(max-width: 767px) 100vw, 360px" className="object-contain" />
               </div>
 
-              <div className="relative hidden bg-black lg:block" aria-label="Virtual and physical design divider">
-                <span className="absolute right-5 top-1/2 -translate-y-1/2 -rotate-90 whitespace-nowrap font-handwriting text-xs uppercase leading-none tracking-[0.14em]">Virtual</span>
-                <span className="absolute left-5 top-1/2 -translate-y-1/2 rotate-90 whitespace-nowrap font-handwriting text-xs uppercase leading-none tracking-[0.14em]">Physical</span>
+              <div className="relative z-20 hidden bg-black lg:block" aria-label="Virtual and physical design divider">
+                <span className="absolute right-[-12px] top-1/2 -translate-y-1/2 -rotate-90 whitespace-nowrap font-handwriting text-xs uppercase leading-none tracking-[0.14em]">Virtual</span>
+                <span className="absolute left-[-12px] top-1/2 -translate-y-1/2 rotate-90 whitespace-nowrap font-handwriting text-xs uppercase leading-none tracking-[0.14em]">Physical</span>
               </div>
 
               <div className="flex w-full flex-col items-center gap-2 py-2 lg:hidden">
