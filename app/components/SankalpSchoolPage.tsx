@@ -76,9 +76,9 @@ export default function SankalpSchoolPage() {
 
           <section aria-labelledby="sankalp-investigation-title" className="pt-14 sm:pt-20 lg:pt-24">
             <SectionHeading id="sankalp-investigation-title">Initial enquiry and investigation</SectionHeading>
-            <div className="mt-7 grid gap-6 lg:max-w-[1168px] lg:grid-cols-3">
+            <div className="mt-7 grid w-full gap-6 lg:grid-cols-3">
               {sankalpInquiryNotes.map((note) => (
-                <div key={note} className="sticky-note relative flex h-[176px] w-full max-w-none items-center justify-center overflow-hidden bg-[#fff229] px-6 pr-[4.75rem] text-center font-handwriting text-base leading-[1.2] sm:px-8 sm:pr-20 sm:text-lg lg:max-w-[352px]">
+                <div key={note} className="sticky-note relative flex h-[176px] w-full max-w-none items-center justify-center overflow-hidden bg-[#fff229] px-6 pr-[4.75rem] text-center font-handwriting text-base leading-[1.2] sm:px-8 sm:pr-20 sm:text-lg">
                   <span className="sticky-note-fold absolute right-0 top-0 z-20 size-[72px] bg-white" aria-hidden="true" />
                   <span className="sticky-note-fold-inner absolute right-[6px] top-[6px] z-20 size-[60px] bg-[#fff229]" aria-hidden="true" />
                   <span className="relative z-10 max-w-[260px]">{note}</span>
@@ -88,11 +88,13 @@ export default function SankalpSchoolPage() {
 
             <p className="mt-8 max-w-[1180px] text-xs leading-[1.45] sm:text-sm">To build a deep understanding of our users, initial secondary research was conducted and presented to the trustees for feedback. This was followed by a series of site visits to observe and interview school staff and students in their environment. Below is a summary of the insights gathered from these observations and interviews.</p>
 
-            <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+            <div className="mt-8 grid gap-4 lg:grid-cols-3">
               {sankalpInterviewInsights.map((insight) => (
                 <article key={insight.question} className="overflow-hidden rounded-t-xl border border-black/35 bg-white font-handwriting shadow-sm">
                   <h3 className="flex min-h-20 items-center bg-[#d8d8d8] px-3 py-3 text-sm font-semibold leading-[1.15]">Q: {insight.question}</h3>
-                  <p className="px-3 py-4 text-sm leading-[1.22]">A: {insight.answer}</p>
+                  <p className="px-3 py-4 text-sm leading-[1.22]">
+                    A: {insight.answer.map((segment, index) => 'highlight' in segment && segment.highlight ? <mark key={`${segment.text}-${index}`} className="bg-[#fff229] px-0.5">{segment.text}</mark> : segment.text)}
+                  </p>
                 </article>
               ))}
             </div>
@@ -120,16 +122,23 @@ export default function SankalpSchoolPage() {
             <div className="pt-14 sm:pt-20">
               <SectionHeading id="sankalp-challenge-title">Design challenge</SectionHeading>
               <p className="mt-5 max-w-[1180px] text-xs leading-[1.45] sm:text-sm">Another major challenge was that the project involved adaptive reuse, requiring the conversion of an old orphanage into an open school for students on the autism spectrum and those with specific learning disabilities. To achieve this, a thorough building audit was conducted to determine how best to utilize the existing structure, what modifications were needed to meet school building standards, and how to minimize overall construction costs.</p>
-              <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                {sankalpDesignChallenges.map((image) => <ResponsiveImage key={image.src} image={image} sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw" />)}
-              </div>
+            <div className="mt-8 grid gap-5 lg:grid-cols-2">
+              {sankalpDesignChallenges.map((image) => (
+                <ResponsiveImage
+                  key={image.src}
+                  image={image}
+                  sizes="(max-width: 1023px) 100vw, 50vw"
+                  className="rounded-sm bg-white shadow-[0_6px_18px_rgba(0,0,0,0.14)]"
+                />
+              ))}
+            </div>
             </div>
           </section>
 
           <section aria-labelledby="sankalp-sketches-title" className="pt-14 sm:pt-20 lg:pt-24">
             <SectionHeading id="sankalp-sketches-title">Initial sketches and ideas</SectionHeading>
-            <div className="mt-8 grid items-center gap-8 lg:grid-cols-[1fr_0.62fr_1fr] lg:gap-10">
-              {sankalpInitialSketches.map((image) => <ResponsiveImage key={image.src} image={image} sizes="(max-width: 1023px) 100vw, 33vw" />)}
+            <div className="mt-8 grid items-center gap-8 lg:grid-cols-[1.04fr_1fr_1.69fr] lg:gap-10">
+              {sankalpInitialSketches.map((image) => <ResponsiveImage key={image.src} image={image} sizes="(max-width: 1023px) 100vw, (max-width: 1279px) 25vw, 33vw" className="rounded-sm bg-white shadow-[0_6px_18px_rgba(0,0,0,0.14)]" />)}
             </div>
           </section>
 
@@ -137,14 +146,14 @@ export default function SankalpSchoolPage() {
             <SectionHeading id="sankalp-final-title">Final proposal</SectionHeading>
             <p className="mt-5 max-w-[1180px] text-xs leading-[1.45] sm:text-sm">The final proposal synthesizes the extensive research and discussions held with teachers and trustees. Understanding their unique teaching pedagogy and specialized activities—such as speech and art therapy—was essential to designing a cohesive classroom layout. Furthermore, because the progression of grade levels differs significantly from conventional schools, the design adapts to this unique flow. The existing layout is optimized by incorporating dedicated niche or “escape” spaces, allowing students to retreat and self-regulate at will.</p>
 
-            <ResponsiveImage image={finalPlan} sizes="(max-width: 767px) 100vw, 1260px" className="mt-8" />
+            <ResponsiveImage image={finalPlan} sizes="(max-width: 767px) 100vw, 1260px" className="mt-8 rounded-sm bg-white shadow-[0_6px_18px_rgba(0,0,0,0.14)]" />
 
-            <div className="mx-auto mt-10 grid max-w-[950px] gap-6 sm:grid-cols-2 lg:gap-8">
-              {classroomViews.map((image) => <ResponsiveImage key={image.src} image={image} sizes="(max-width: 639px) 100vw, 50vw" />)}
+            <div className="mx-auto mt-10 grid max-w-[950px] gap-6 md:items-end md:grid-cols-2 lg:gap-8">
+              {classroomViews.map((image) => <ResponsiveImage key={image.src} image={image} sizes="(max-width: 767px) 100vw, 50vw" className="rounded-sm bg-white shadow-[0_6px_18px_rgba(0,0,0,0.14)]" />)}
             </div>
 
-            <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:gap-8">
-              {learningEnvironmentViews.map((image) => <ResponsiveImage key={image.src} image={image} sizes="(max-width: 639px) 100vw, 50vw" />)}
+            <div className="mt-8 grid gap-6 md:grid-cols-2 lg:gap-8">
+              {learningEnvironmentViews.map((image) => <ResponsiveImage key={image.src} image={image} sizes="(max-width: 767px) 100vw, 50vw" className="rounded-sm bg-white shadow-[0_6px_18px_rgba(0,0,0,0.14)]" />)}
             </div>
           </section>
         </article>

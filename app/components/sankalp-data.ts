@@ -5,6 +5,11 @@ export interface SankalpImage {
   height: number;
 }
 
+export interface SankalpAnswerSegment {
+  text: string;
+  highlight?: boolean;
+}
+
 export const sankalpInquiryNotes = [
   'Understanding Autism Spectrum Disorder (ASD) and Specific Learning Disorder (SLD)',
   'What is ideal and what is comfortable for the users, to create an environment that enables learning',
@@ -14,27 +19,53 @@ export const sankalpInquiryNotes = [
 export const sankalpInterviewInsights = [
   {
     question: 'What is it that makes an autistic child behave in an abnormal way?',
-    answer: 'Nobody knows. It is a wiring problem in the brain. Every child is different, so a generalized problem cannot be pinned down.',
+    answer: [
+      { text: "Nobody knows, it is a wiring problem in the brain. " },
+      { text: 'Every child is different', highlight: true },
+      { text: ', so a generalized problem cannot be pinned down.' },
+    ],
   },
   {
-    question: 'Do we stimulate or not stimulate the senses?',
-    answer: 'The objective is to balance typical and sensory design approaches by creating an environment that helps children face the world while remaining sensitive to their needs.',
+    question: 'Do we stimulate or not stimulate the senses? - Neuro Typical Approach and The Sensory Design Approach',
+    answer: [
+      { text: 'Yes we will have to stimulate the senses. The objective is to balance both these approaches, by ' },
+      { text: 'creating an environment which makes them independent', highlight: true },
+      { text: ' to face the world, and also be sensitive enough for their needs and requirements.' },
+    ],
   },
   {
-    question: 'Do we need relaxing spaces in the classroom?',
-    answer: 'Yes. Sometimes students need to be left on their own to calm themselves. Relaxing spaces within or between classrooms can be helpful.',
+    question: 'Do we need "releasing valves" in the classroom?',
+    answer: [
+      { text: 'Yes. Sometimes we need to just leave the student on their own ' },
+      { text: 'to calm him/herself down', highlight: true },
+      { text: '. Having releasing valves in the classroom or as a common space between some classrooms will also be helpful.' },
+    ],
   },
   {
     question: 'Which are the isolated spaces?',
-    answer: 'Mostly sensory rooms, cozy caves, and other quiet places where a student can be left alone to calm themselves.',
+    answer: [
+      { text: 'Mostly the ' },
+      { text: 'sensory rooms, cozy caves', highlight: true },
+      { text: ' etc where the students can be left alone to calm him/herself.' },
+    ],
   },
   {
-    question: 'Are these children different from other children?',
-    answer: 'Mostly not. Difficulty processing instructions can make them frustrated easily, so they need calm, comfortable places where they can regulate themselves.',
+    question: 'Are these kids different from normal kids?',
+    answer: [
+      { text: 'Mostly not. ' },
+      { text: 'These kids are very normal', highlight: true },
+      { text: '. But at times due to their inability to process things or instructions, ' },
+      { text: 'they can get frustrated very easily', highlight: true },
+      { text: '. Therefore, they also need these releasing valves where they can calm themselves.' },
+    ],
   },
   {
     question: 'Do they have any special requirements?',
-    answer: 'The school supports different intelligences. Classrooms should remain flexible enough to let students move between spaces according to their activities.',
+    answer: [
+      { text: 'The school aims at providing ' },
+      { text: 'different intelligences according to the theory of multiple intelligence', highlight: true },
+      { text: '. Therefore, the classroom spaces can be as flexible as possible to allow the movement of students between different classrooms, depending on their abilities.' },
+    ],
   },
 ] as const;
 
@@ -83,7 +114,7 @@ export const sankalpDesignChallenges: readonly SankalpImage[] = [
 ] as const;
 
 export const sankalpInitialSketches: readonly SankalpImage[] = [
-  { src: '/images/sankalp/sankalp_initial_sketches_and_ideas_1.png', alt: 'Initial linear classroom layout sketch', width: 569, height: 327 },
+  { src: '/images/sankalp/sankalp_initial_sketches_and_ideas_4.png', alt: 'Initial linear classroom layout sketch', width: 350, height: 587 },
   { src: '/images/sankalp/sankalp_initial_sketches_and_ideas_2.png', alt: 'Initial activity-room layout sketch', width: 337, height: 292 },
   { src: '/images/sankalp/sankalp_initial_sketches_and_ideas_3.png', alt: 'Initial sensory courtyard layout sketch', width: 569, height: 327 },
 ] as const;
