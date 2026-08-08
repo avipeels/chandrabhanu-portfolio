@@ -14,6 +14,6 @@ export const projects: readonly Project[] = [
   { title: 'Movie Ticket Booking App', year: '2025', href: '/work/movie-ticket-booking-app', image: { src: '/images/board-game-29108c.png', alt: 'Movie Ticket Booking App project card' } },
   { title: 'Tokyo Anti-Library', year: '2018', href: '/work/tokyo-anti-library', image: { src: '/images/tokyo-anti-library.png', alt: 'Tokyo Anti-Library project card' } },
   { title: 'Sankalp School', year: '2018', href: '/work/sankalp-school', image: { src: '/images/school-project-2068ee.png', alt: 'Sankalp School project card' } },
-  { title: 'Urban Simulation Board Game', year: '2016', image: { src: '/images/figma-urban-source.png', alt: 'Urban Simulation Board Game project card' } },
+  { title: 'Urban Simulation Board Game', year: '2016', href: '/work/urban-simulation-board-game', image: { src: '/images/figma-urban-source.png', alt: 'Urban Simulation Board Game project card' } },
   { title: 'Drawings', href: '/work/drawings', image: { src: '/images/drawings-514a7a.png', alt: 'Drawings project card' } },
 ];
