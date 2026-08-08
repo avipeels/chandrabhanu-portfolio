@@ -1,13 +1,15 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import type { Project } from './portfolio-data';
 
 interface ProjectCardProps { project: Project; }
 
 export default function ProjectCard({ project }: ProjectCardProps) {
   const hasYear = Boolean(project.year);
+  const cardClassName = `group flex h-full min-w-0 w-full flex-col ${hasYear ? '' : 'mt-[27.296px]'}`;
 
-  return (
-    <article className={`group flex h-full min-w-0 w-full flex-col ${hasYear ? '' : 'mt-[27.296px]'}`}>
+  const cardContent = (
+    <>
       {project.year && <p className="h-[27.296px] font-montserrat text-base leading-5 text-black">{project.year}</p>}
       <div className="flex min-h-0 w-full flex-1 flex-col">
         <div className="relative aspect-[330/245] overflow-hidden bg-neutral-100">
@@ -24,6 +26,14 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           <h3 className="break-words font-montserrat text-2xl font-bold uppercase leading-[1.08] md:text-[26px] lg:text-[32px]">{project.title}</h3>
         </div>
       </div>
-    </article>
+    </>
+  );
+
+  return project.href ? (
+    <Link href={project.href} className={`${cardClassName} focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-[#165C12]`}>
+      {cardContent}
+    </Link>
+  ) : (
+    <article className={cardClassName}>{cardContent}</article>
   );
 }

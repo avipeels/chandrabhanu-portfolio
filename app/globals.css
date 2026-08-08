@@ -37,3 +37,20 @@ body {
 .font-montserrat-subrayada {
   font-family: 'Montserrat Subrayada', sans-serif;
 }
+
+.font-handwriting {
+  font-family: 'Bradley Hand', 'Segoe Print', 'Comic Sans MS', cursive;
+  font-style: italic;
+}
+
+.sticky-note {
+  clip-path: polygon(0 0, calc(100% - 72px) 0, 100% 72px, 100% 100%, 0 100%);
+}
+
+.sticky-note-fold {
+  clip-path: polygon(0 0, 0 70%, 1% 78%, 4% 86%, 9% 93%, 16% 98%, 23% 100%, 100% 100%);
+}
+
+.sticky-note-fold-inner {
+  clip-path: polygon(0 0, 0 68%, 1% 77%, 4% 85%, 9% 93%, 17% 98%, 25% 100%, 100% 100%);
+}

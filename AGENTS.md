@@ -13,16 +13,6 @@ This is a Next.js App Router portfolio built with TypeScript, React, and Tailwin
 - Preserve the existing responsive Tailwind design. Prefer semantic HTML and keyboard-accessible native elements.
 - Never expose secrets in client components or commit environment values. Use server-only environment access when needed.
 
-## Commands
-
-```bash
-yarn lint
-yarn build
-yarn dev
-```
-
-Run `yarn lint` after source changes. Run `yarn build` for changes that affect routes, rendering, metadata, or Next.js configuration.
-
 ## Next.js guidance
 
 For implementation work, read `skills/next-best-practices/SKILL.md`. It is intentionally concise and routes to the version-matched Next.js documentation when it is available.
