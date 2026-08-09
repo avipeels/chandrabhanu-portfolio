@@ -10,9 +10,17 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.chandrabhanudosapati.in"),
   title: "Chandra Bhanu | Portfolio",
   description:
     "Portfolio of Chandra Bhanu, featuring architecture, board game, experience, UX, and visual design work.",
+  alternates: {
+    canonical: "/",
+  },
+  icons: {
+    icon: [{ url: "/icon.svg?v=2", type: "image/svg+xml" }],
+    shortcut: [{ url: "/favicon.ico?v=2", type: "image/x-icon" }],
+  },
   robots: { index: true, follow: true },
 };
 
