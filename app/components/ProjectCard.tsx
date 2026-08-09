@@ -22,7 +22,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           />
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#1E1E1E]/80" />
         </div>
-        <div className="flex min-h-[85px] flex-1 items-center justify-center bg-[#165C12] px-4 py-4 text-center text-white sm:px-5 lg:h-[136px] lg:flex-none lg:min-h-0">
+        <div className="flex min-h-[75px] flex-1 items-center justify-center bg-black px-4 py-4 text-center text-white sm:px-5 lg:h-[120px] lg:flex-none lg:min-h-0">
           <h3 className="break-words font-montserrat text-2xl font-bold uppercase leading-[1.08] md:text-[22px] lg:text-[26px]">{project.title}</h3>
         </div>
       </div>
@@ -30,7 +30,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
   );
 
   return project.href ? (
-    <Link href={project.href} className={`${cardClassName} focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-[#165C12]`}>
+    <Link href={project.href} className={`${cardClassName} focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-black/60`}>
       {cardContent}
     </Link>
   ) : (
