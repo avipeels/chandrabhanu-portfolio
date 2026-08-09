@@ -22,3 +22,4 @@ For implementation work, read `skills/next-best-practices/SKILL.md`. It is inten
 - Do not modify generated output such as `.next/`.
 - Do not add dependencies unless they materially support the requested feature.
 - Update this file and the relevant skill when project conventions change.
+- Do not run yarn build and yarn lint after every prompt, I will do it manually.

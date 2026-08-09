@@ -12,18 +12,17 @@ const portraitImages = [
 export default function AboutPage() {
   return (
     <main className="min-h-screen overflow-x-hidden bg-[#f7f7f7] text-black">
-      <section aria-label="About page image banner" className="mx-auto max-w-[1580px] px-4 pt-4 sm:px-8 lg:px-14 lg:pt-8">
+      <section aria-label="About page image banner" className="w-full pt-4 lg:pt-8">
         <div className="relative aspect-[1728/230] w-full overflow-hidden">
           <Image src="/images/about_header.png" alt="Trees, flowers, and a dragonfly arranged in a panoramic collage" fill priority sizes="100vw" className="object-cover" />
         </div>
       </section>
 
       <section className="relative mx-auto max-w-[1240px] px-6 pb-16 pt-7 sm:px-10 lg:px-0 lg:pb-24 lg:pt-8">
-        <div className="pointer-events-none absolute right-[-8%] top-14 hidden h-32 w-[36%] rounded-[50%] border-t-4 border-[#b9e1ff] lg:block" aria-hidden="true" />
         <Navigation active="about" roles="Designer | Thinker | Maker | Explorer | Mentor | Mother of a toddler" />
 
         <div className="mx-auto mt-12 grid w-full max-w-[1120px] items-center gap-10 md:mt-16 md:grid-cols-2 md:gap-8 lg:mt-20 lg:grid-cols-[520px_minmax(0,1fr)] lg:gap-16">
-          <div className="relative mx-auto aspect-[520/430] w-full max-w-[520px]">
+          <div className="relative mx-auto mb-12 aspect-[520/430] w-full max-w-[520px] md:mb-0">
             {portraitImages.map((image) => (
               <Image key={image.src} src={image.src} alt={image.alt} width={image.width} height={image.height} className={`absolute h-auto object-cover grayscale ${image.position}`} sizes="(max-width: 639px) 90vw, 520px" />
             ))}
@@ -40,8 +39,8 @@ export default function AboutPage() {
         <div className="space-y-0">
           {aboutTimeline.map((entry, index) => (
             <div key={`${entry.year}-${index}`} className="grid min-w-0 gap-4 border-b border-black/60 py-5 md:grid-cols-[minmax(220px,0.8fr)_minmax(0,1.2fr)] md:gap-8 lg:grid-cols-[360px_minmax(0,1fr)] lg:gap-12">
-              <p className="min-w-0 self-center break-words text-center font-montserrat-subrayada text-xs leading-[1.2] text-[#165C12] sm:text-sm md:text-base">{entry.annotation}</p>
-              <div className="min-w-0 font-montserrat text-sm leading-[1.3] sm:text-base">
+              <p className="order-2 min-w-0 self-center break-words text-center font-montserrat-subrayada text-xs leading-[1.2] text-[#165C12] sm:text-sm md:order-1 md:text-base">{entry.annotation}</p>
+              <div className="order-1 min-w-0 font-montserrat text-sm leading-[1.3] sm:text-base md:order-2">
                 {entry.year && <p className="mb-2 font-bold">{entry.year}</p>}
                 {entry.details.map((detail) => <p key={detail} className="font-semibold">{detail}</p>)}
               </div>
@@ -62,7 +61,7 @@ export default function AboutPage() {
         </ul>
       </section>
 
-      <section aria-label="Closing image" className="mx-auto max-w-[1580px] px-4 pb-8 sm:px-8 lg:px-14 lg:pb-14">
+      <section aria-label="Closing image" className="w-full">
         <div className="relative aspect-[16/5] min-h-[220px] overflow-hidden sm:min-h-[320px] lg:min-h-0">
           <Image src="/images/about_footer.png" alt="Abstract architectural collage" fill sizes="100vw" className="object-cover object-left grayscale" />
         </div>
