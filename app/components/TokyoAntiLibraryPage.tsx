@@ -1,15 +1,6 @@
 import Image from 'next/image';
-import Link from 'next/link';
+import { CaseStudyBackLink, CaseStudyNavigation, CaseStudySectionHeading } from './CaseStudyComponents';
 import { inquiryNotes, investigationCards } from './tokyo-data';
-
-function CaseStudyNavigation() {
-  return (
-    <nav aria-label="Case study navigation" className="flex items-center gap-6 text-xs sm:text-sm 2xl:absolute 2xl:right-[-200px] 2xl:top-0">
-      <Link href="/#work" className="font-semibold text-[#165C12] underline decoration-1 underline-offset-4">Work</Link>
-      <Link href="/about" className="text-black transition-opacity hover:opacity-60">About</Link>
-    </nav>
-  );
-}
 
 export default function TokyoAntiLibraryPage() {
   return (
@@ -24,18 +15,18 @@ export default function TokyoAntiLibraryPage() {
             <div className="flex items-start justify-between gap-6">
               <div className="min-w-0">
                 <div className="relative">
-                  <Link href="/#work" aria-label="Back to work" className="mb-3 block w-fit text-3xl leading-none transition-opacity hover:opacity-60 xl:absolute xl:right-full xl:top-[-3px] xl:mr-16 xl:mb-0">←</Link>
+                  <CaseStudyBackLink />
                   <h1 className="font-montserrat text-xl font-bold uppercase underline decoration-1 underline-offset-4 sm:text-2xl">Tokyo Anti-Library</h1>
                   <p className="mt-2 text-xs leading-relaxed text-black/80 sm:text-sm">Archasm competition entry | Team of 2 | Honorable mention @19th Rank | Architecture | App design</p>
                 </div>
               </div>
-              <CaseStudyNavigation />
+              <CaseStudyNavigation className="2xl:absolute 2xl:right-[-200px] 2xl:top-0" />
             </div>
             <p className="mt-10 max-w-[1160px] text-xs leading-[1.35] sm:text-sm">The competition was to design a landmark 21st-century public library in Tokyo that explores the library&apos;s purpose in our digital world. The proposal was to address concerns about the declining relevance of libraries by transforming them into advanced hubs for research and knowledge sharing. Ultimately, the goal is to create a new architectural standard that serves as a blueprint for future libraries worldwide.</p>
           </header>
 
           <section aria-labelledby="investigation-title" className="pt-8 sm:pt-8">
-            <h2 id="investigation-title" className="font-montserrat text-base font-bold uppercase sm:text-lg">Initial enquiry and investigation</h2>
+            <CaseStudySectionHeading id="investigation-title">Initial enquiry and investigation</CaseStudySectionHeading>
             <div className="mt-7 grid w-full gap-6 lg:grid-cols-3">
               {inquiryNotes.map((note) => <div key={note} className="sticky-note relative flex h-[176px] w-full max-w-none items-center justify-center justify-self-center overflow-hidden bg-[#fff229] px-5 pr-16 text-center font-handwriting text-base leading-[1.2] sm:px-8 sm:pr-[4.5rem] sm:text-lg lg:justify-self-start"><span className="sticky-note-fold absolute right-0 top-0 z-20 size-[72px] bg-white" aria-hidden="true" /><span className="sticky-note-fold-inner absolute right-[6px] top-[6px] z-20 size-[60px] bg-[#fff229]" aria-hidden="true" /><span className="relative z-10 max-w-[245px]">{note}</span></div>)}
             </div>
@@ -49,7 +40,7 @@ export default function TokyoAntiLibraryPage() {
           </section>
 
           <section aria-labelledby="hypothesis-title" className="pt-14 sm:pt-20">
-            <h2 id="hypothesis-title" className="font-montserrat text-base font-bold uppercase sm:text-lg">Hypothesis</h2>
+            <CaseStudySectionHeading id="hypothesis-title">Hypothesis</CaseStudySectionHeading>
             <p className="mt-5 text-xs leading-[1.35] sm:text-sm">Based on our understanding, our initial idea is that any physical space can be subdivided in terms of its functional aspects and experiential aspects. And in the digital era if the functional aspects get transferred into the virtual realm, we can focus on enhancing the experiential aspects of any physical space.</p>
             <div className="relative mt-10 aspect-[1236/429] w-full">
               <Image src="/images/tokyo_4.png" alt="Functional and experiential aspects of a library" fill sizes="(max-width: 767px) 100vw, 1260px" className="object-contain" />
@@ -57,7 +48,7 @@ export default function TokyoAntiLibraryPage() {
           </section>
 
           <section aria-labelledby="objective-title" className="pt-14 sm:pt-20">
-            <h2 id="objective-title" className="font-montserrat text-base font-bold uppercase sm:text-lg">Overall design objective</h2>
+            <CaseStudySectionHeading id="objective-title">Overall design objective</CaseStudySectionHeading>
             <p className="mt-5 text-xs leading-[1.35] sm:text-sm">To create a library that is “For the people, by the people and of the people,” by shifting all functional aspects of a library to the virtual realm to enhance the physical experience of the library.</p>
             <div className="relative mt-8 aspect-[1103/621] w-full">
               <Image src="/images/tokyo_5.png" alt="Tokyo Anti-Library modular design objective" fill sizes="(max-width: 767px) 100vw, 1260px" className="object-contain" />
@@ -65,7 +56,7 @@ export default function TokyoAntiLibraryPage() {
           </section>
 
           <section aria-labelledby="proposal-title" className="pt-14 sm:pt-20">
-            <h2 id="proposal-title" className="font-montserrat text-base font-bold uppercase sm:text-lg">Final proposal</h2>
+            <CaseStudySectionHeading id="proposal-title">Final proposal</CaseStudySectionHeading>
             <p className="mt-5 text-xs leading-[1.35] sm:text-sm">Our initiative presents a bifurcated framework that harmonizes the digital and physical realms to redefine the library experience. By leveraging the concept of the “Phygital,” we aim to create a seamless transition between virtual navigation and physical habitation. In the virtual realm, users engage with a high-fidelity digital interface, while the physical library becomes a place for discovery, community, and shared experience.</p>
             <div className="mt-10 grid gap-8 lg:grid-cols-[minmax(0,360px)_1px_minmax(0,1fr)] lg:items-stretch lg:gap-x-8">
               <div className="relative aspect-[405/1818] min-w-0">

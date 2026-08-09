@@ -1,7 +1,5 @@
-import Image from 'next/image';
-import Link from 'next/link';
+import { CaseStudyBackLink, CaseStudyImage, CaseStudyNavigation, CaseStudySectionHeading } from './CaseStudyComponents';
 import {
-  type SankalpImage,
   sankalpDesignChallenges,
   sankalpDesignCriteria,
   sankalpDesignGoals,
@@ -14,41 +12,6 @@ import {
   sankalpUserProfileAnalysis,
 } from './sankalp-data';
 
-interface ResponsiveImageProps {
-  image: SankalpImage;
-  sizes: string;
-  className?: string;
-  priority?: boolean;
-}
-
-function ResponsiveImage({ image, sizes, className = '', priority = false }: ResponsiveImageProps) {
-  return (
-    <div className={`relative w-full ${className}`} style={{ aspectRatio: `${image.width} / ${image.height}` }}>
-      <Image
-        src={image.src}
-        alt={image.alt}
-        fill
-        priority={priority}
-        sizes={sizes}
-        className="object-contain"
-      />
-    </div>
-  );
-}
-
-function CaseStudyNavigation() {
-  return (
-    <nav aria-label="Case study navigation" className="flex shrink-0 items-center gap-6 text-xs sm:text-sm 2xl:absolute 2xl:right-[-200px] 2xl:top-0">
-      <Link href="/#work" className="font-semibold text-[#165C12] underline decoration-1 underline-offset-4">Work</Link>
-      <Link href="/about" className="text-black transition-opacity hover:opacity-60">About</Link>
-    </nav>
-  );
-}
-
-function SectionHeading({ id, children }: { id: string; children: React.ReactNode }) {
-  return <h2 id={id} className="font-montserrat text-base font-bold uppercase sm:text-lg">{children}</h2>;
-}
-
 export default function SankalpSchoolPage() {
   const finalPlan = sankalpFinalProposalImages[0];
   const classroomViews = sankalpFinalProposalImages.slice(1, 3);
@@ -57,25 +20,25 @@ export default function SankalpSchoolPage() {
   return (
     <main className="min-h-screen overflow-x-hidden bg-[#f2f2f2] text-black">
       <div className="bg-white py-4 sm:py-6 lg:py-8">
-        <ResponsiveImage image={sankalpHeaderBanner} priority sizes="100vw" />
+        <CaseStudyImage image={sankalpHeaderBanner} priority sizes="100vw" frame="none" />
 
         <article className="mx-auto max-w-[1260px] px-4 pb-16 pt-5 sm:px-8 sm:pb-24 sm:pt-7 lg:px-8 xl:px-0">
           <header className="relative">
             <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
               <div className="min-w-0">
                 <div className="relative">
-                  <Link href="/#work" aria-label="Back to work" className="mb-3 block w-fit text-3xl leading-none transition-opacity hover:opacity-60 xl:absolute xl:right-full xl:top-[-3px] xl:mr-16 xl:mb-0">←</Link>
+                  <CaseStudyBackLink />
                   <h1 className="font-montserrat text-lg font-bold uppercase underline decoration-1 underline-offset-4 sm:text-xl lg:text-2xl">Sankalp: The Open School and Learning Centre</h1>
                   <p className="mt-2 text-xs leading-relaxed text-black/80 sm:text-sm">Professional project | User-centred design | Adaptive Reuse | Benny Kuriakose and Associates</p>
                 </div>
               </div>
-              <CaseStudyNavigation />
+              <CaseStudyNavigation className="shrink-0 2xl:absolute 2xl:right-[-200px] 2xl:top-0" />
             </div>
             <p className="mt-10 max-w-[1160px] text-xs leading-[1.45] sm:text-sm">Sankalp is a registered trust started in 1999. The trust is currently managed by 3 directors and 7 trustees. The trust majorly caters to children suffering from Autism Spectrum Disorder (ASD) and Specific Learning Disabilities (SLD). I worked in the beginning phase of the project and was responsible for the design research and the design concept.</p>
           </header>
 
           <section aria-labelledby="sankalp-investigation-title" className="pt-14 sm:pt-20 lg:pt-24">
-            <SectionHeading id="sankalp-investigation-title">Initial enquiry and investigation</SectionHeading>
+            <CaseStudySectionHeading id="sankalp-investigation-title">Initial enquiry and investigation</CaseStudySectionHeading>
             <div className="mt-7 grid w-full gap-6 lg:grid-cols-3">
               {sankalpInquiryNotes.map((note) => (
                 <div key={note} className="sticky-note relative flex h-[176px] w-full max-w-none items-center justify-center overflow-hidden bg-[#fff229] px-6 pr-[4.75rem] text-center font-handwriting text-base leading-[1.2] sm:px-8 sm:pr-20 sm:text-lg">
@@ -100,60 +63,61 @@ export default function SankalpSchoolPage() {
             </div>
 
             <div className="pt-14 sm:pt-20 lg:pt-24">
-              <SectionHeading id="sankalp-user-profile-title">User profile analysis</SectionHeading>
-              <ResponsiveImage image={sankalpUserProfileAnalysis} sizes="(max-width: 767px) 100vw, 1260px" className="mt-8" />
+              <CaseStudySectionHeading id="sankalp-user-profile-title">User profile analysis</CaseStudySectionHeading>
+              <CaseStudyImage image={sankalpUserProfileAnalysis} sizes="(max-width: 767px) 100vw, 1260px" className="mt-8" frame="none" />
             </div>
           </section>
 
           <section aria-labelledby="sankalp-objective-title" className="pt-14 sm:pt-20 lg:pt-24">
-            <SectionHeading id="sankalp-objective-title">Overall design objective</SectionHeading>
-            <ResponsiveImage image={sankalpOverallDesignObjective} sizes="(max-width: 767px) 100vw, 900px" className="mx-auto mt-8 max-w-[906px]" />
+            <CaseStudySectionHeading id="sankalp-objective-title">Overall design objective</CaseStudySectionHeading>
+            <CaseStudyImage image={sankalpOverallDesignObjective} sizes="(max-width: 767px) 100vw, 900px" className="mx-auto mt-8 max-w-[906px]" frame="none" />
 
             <div className="pt-14 sm:pt-20">
-              <SectionHeading id="sankalp-design-goals-title">Design goals</SectionHeading>
-              <ResponsiveImage image={sankalpDesignGoals} sizes="(max-width: 767px) 100vw, 1260px" className="mt-8" />
+              <CaseStudySectionHeading id="sankalp-design-goals-title">Design goals</CaseStudySectionHeading>
+              <CaseStudyImage image={sankalpDesignGoals} sizes="(max-width: 767px) 100vw, 1260px" className="mt-8" frame="none" />
             </div>
           </section>
 
           <section aria-labelledby="sankalp-criteria-title" className="pt-14 sm:pt-20 lg:pt-24">
-            <SectionHeading id="sankalp-criteria-title">Design criteria</SectionHeading>
-            <ResponsiveImage image={sankalpDesignCriteria} sizes="(max-width: 767px) 100vw, 1260px" className="mt-8" />
+            <CaseStudySectionHeading id="sankalp-criteria-title">Design criteria</CaseStudySectionHeading>
+            <CaseStudyImage image={sankalpDesignCriteria} sizes="(max-width: 767px) 100vw, 1260px" className="mt-8" frame="none" />
 
             <div className="pt-14 sm:pt-20">
-              <SectionHeading id="sankalp-challenge-title">Design challenge</SectionHeading>
+              <CaseStudySectionHeading id="sankalp-challenge-title">Design challenge</CaseStudySectionHeading>
               <p className="mt-5 max-w-[1180px] text-xs leading-[1.45] sm:text-sm">Another major challenge was that the project involved adaptive reuse, requiring the conversion of an old orphanage into an open school for students on the autism spectrum and those with specific learning disabilities. To achieve this, a thorough building audit was conducted to determine how best to utilize the existing structure, what modifications were needed to meet school building standards, and how to minimize overall construction costs.</p>
-            <div className="mt-8 grid gap-5 lg:grid-cols-2">
-              {sankalpDesignChallenges.map((image) => (
-                <ResponsiveImage
-                  key={image.src}
-                  image={image}
-                  sizes="(max-width: 1023px) 100vw, 50vw"
-                  className="rounded-sm bg-white shadow-[0_6px_18px_rgba(0,0,0,0.14)]"
-                />
-              ))}
-            </div>
+              <div className="mt-8 grid gap-5 lg:grid-cols-2">
+                {sankalpDesignChallenges.map((image) => (
+                  <CaseStudyImage
+                    key={image.src}
+                    image={image}
+                    sizes="(max-width: 1023px) 100vw, 50vw"
+                    className="rounded-sm bg-white shadow-[0_6px_18px_rgba(0,0,0,0.14)]"
+                    frame="none"
+                  />
+                ))}
+              </div>
             </div>
           </section>
 
           <section aria-labelledby="sankalp-sketches-title" className="pt-14 sm:pt-20 lg:pt-24">
-            <SectionHeading id="sankalp-sketches-title">Initial sketches and ideas</SectionHeading>
+            <CaseStudySectionHeading id="sankalp-sketches-title">Initial sketches and ideas</CaseStudySectionHeading>
             <div className="mt-8 grid items-center gap-8 lg:grid-cols-[1.04fr_1fr_1.69fr] lg:gap-10">
-              {sankalpInitialSketches.map((image) => <ResponsiveImage key={image.src} image={image} sizes="(max-width: 1023px) 100vw, (max-width: 1279px) 25vw, 33vw" className="rounded-sm bg-white shadow-[0_6px_18px_rgba(0,0,0,0.14)]" />)}
+              {sankalpInitialSketches.map((image) => <CaseStudyImage key={image.src} image={image} sizes="(max-width: 1023px) 100vw, (max-width: 1279px) 25vw, 33vw" className="rounded-sm bg-white shadow-[0_6px_18px_rgba(0,0,0,0.14)]" frame="none" />)}
             </div>
           </section>
 
           <section aria-labelledby="sankalp-final-title" className="pt-14 sm:pt-20 lg:pt-24">
-            <SectionHeading id="sankalp-final-title">Final proposal</SectionHeading>
+            <CaseStudySectionHeading id="sankalp-final-title">Final proposal</CaseStudySectionHeading>
             <p className="mt-5 max-w-[1180px] text-xs leading-[1.45] sm:text-sm">The final proposal synthesizes the extensive research and discussions held with teachers and trustees. Understanding their unique teaching pedagogy and specialized activities—such as speech and art therapy—was essential to designing a cohesive classroom layout. Furthermore, because the progression of grade levels differs significantly from conventional schools, the design adapts to this unique flow. The existing layout is optimized by incorporating dedicated niche or “escape” spaces, allowing students to retreat and self-regulate at will.</p>
 
-            <ResponsiveImage image={finalPlan} sizes="(max-width: 767px) 100vw, 1260px" className="mt-8 rounded-sm bg-white shadow-[0_6px_18px_rgba(0,0,0,0.14)]" />
+            <CaseStudyImage image={finalPlan} sizes="(max-width: 767px) 100vw, 1260px" className="mt-8 rounded-sm bg-white shadow-[0_6px_18px_rgba(0,0,0,0.14)]" frame="none" />
 
             <div className="mx-auto mt-10 grid max-w-[950px] gap-6 md:items-end md:grid-cols-2 lg:gap-8">
-              {classroomViews.map((image) => <ResponsiveImage key={image.src} image={image} sizes="(max-width: 767px) 100vw, 50vw" className="rounded-sm bg-white shadow-[0_6px_18px_rgba(0,0,0,0.14)]" />)}
+              {classroomViews.map((image) => <CaseStudyImage key={image.src} image={image} sizes="(max-width: 767px) 100vw, 50vw" className="rounded-sm bg-white shadow-[0_6px_18px_rgba(0,0,0,0.14)]" frame="none" />)}
             </div>
 
             <div className="mt-8 grid gap-6 md:grid-cols-2 lg:gap-8">
-              {learningEnvironmentViews.map((image) => <ResponsiveImage key={image.src} image={image} sizes="(max-width: 767px) 100vw, 50vw" className="rounded-sm bg-white shadow-[0_6px_18px_rgba(0,0,0,0.14)]" />)}
+              {learningEnvironmentViews.map((image) => <CaseStudyImage key={image.src} image={image} sizes="(max-width: 767px) 100vw, 50vw" className="rounded-sm bg-white shadow-[0_6px_18px_rgba(0,0,0,0.14)]" frame="none" />)}
             </div>
           </section>
         </article>
