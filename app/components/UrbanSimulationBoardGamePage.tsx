@@ -38,9 +38,9 @@ export default function UrbanSimulationBoardGamePage() {
             <section aria-labelledby="competitive-analysis-title" className="pt-2">
               <CaseStudySectionHeading id="competitive-analysis-title" size="large">Competitive analysis</CaseStudySectionHeading>
               <p className="mt-5 max-w-[1160px] text-xs leading-[1.45] sm:text-sm">There have been numerous precedents for urban simulation games, with SimCity remaining the most iconic example. Launched in 1989, it pioneered the application of systems thinking to urban environments, requiring players to balance interconnected variables such as transportation, housing, and ecological health.</p>
-              <div className="mt-7 grid gap-7 sm:grid-cols-2 sm:gap-8">
-                <CaseStudyImage image={urbanSimulationImages.simCityScreens} sizes="(max-width: 639px) 100vw, (max-width: 1023px) 46vw, 590px" />
-                <CaseStudyImage image={urbanSimulationImages.gameComparison} sizes="(max-width: 639px) 100vw, (max-width: 1023px) 46vw, 590px" />
+              <div className="mt-7 grid items-center justify-items-center gap-7 sm:gap-8 lg:grid-cols-2">
+                <CaseStudyImage image={urbanSimulationImages.simCityScreens} className="mx-auto max-w-[590px]" sizes="(max-width: 1023px) 100vw, 590px" />
+                <CaseStudyImage image={urbanSimulationImages.gameComparison} className="mx-auto max-w-[590px]" sizes="(max-width: 1023px) 100vw, 590px" />
               </div>
             </section>
 
@@ -51,9 +51,9 @@ export default function UrbanSimulationBoardGamePage() {
 
             <section aria-labelledby="personas-title" className="pt-2">
               <CaseStudySectionHeading id="personas-title" size="large">User personas of the game</CaseStudySectionHeading>
-              <div className="mt-7 space-y-7 sm:space-y-10">
-                <CaseStudyImage image={urbanSimulationImages.personas} className="mx-auto max-w-[1040px]" sizes="(max-width: 639px) 100vw, 1040px" />
-                <CaseStudyImage image={urbanSimulationImages.gameLoop} className="mx-auto max-w-[1040px]" sizes="(max-width: 639px) 100vw, 1040px" />
+              <div className="mt-7 grid gap-7 sm:gap-10 lg:grid-cols-2 lg:items-center">
+                <CaseStudyImage image={urbanSimulationImages.personas} className="mx-auto max-w-[610px]" sizes="(max-width: 1023px) 100vw, 610px" />
+                <CaseStudyImage image={urbanSimulationImages.gameLoop} className="mx-auto max-w-[610px]" sizes="(max-width: 1023px) 100vw, 610px" />
               </div>
             </section>
 
@@ -63,7 +63,7 @@ export default function UrbanSimulationBoardGamePage() {
 
             <section aria-labelledby="quality-index-title" className="pt-2">
               <CaseStudySectionHeading id="quality-index-title" size="large">Urban quality index</CaseStudySectionHeading>
-              <div className="mt-5 grid items-center gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-12">
+              <div className="mt-5 grid items-center gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start lg:gap-12">
                 <p className="text-xs leading-[1.45] sm:text-sm">When designing a game, the most important question is: what is the player&apos;s goal? Usually, it&apos;s about money, power, or land—goals that are purely individual. This game takes a different approach by focusing on a much larger objective: the Urban Quality Index (UQI). It explores how the personal goals of different people in a city can actually help everyone reach that collective success.</p>
                 <CaseStudyImage image={urbanSimulationImages.urbanQualityIndex} sizes="(max-width: 1023px) 100vw, 700px" />
               </div>
@@ -78,15 +78,17 @@ export default function UrbanSimulationBoardGamePage() {
             </section>
 
             <section aria-label="Additional game components" className="pt-2">
-              <div className="grid gap-7 sm:grid-cols-2 sm:gap-8">
-                <div><h3 className="text-sm font-bold sm:text-base">3. Event Cards</h3><CaseStudyImage image={urbanSimulationImages.eventCards} className="mt-5" sizes="(max-width: 639px) 100vw, 46vw" /></div>
-                <div><h3 className="text-sm font-bold sm:text-base">4. Urban Quality Chart</h3><CaseStudyImage image={urbanSimulationImages.qualityChart} className="mt-5" sizes="(max-width: 639px) 100vw, 46vw" /></div>
+              <h3 className="text-sm font-bold sm:text-base">3. Event Cards</h3>
+              <div className="mt-5 grid gap-7 sm:grid-cols-2 sm:gap-8">
+                <CaseStudyImage image={urbanSimulationImages.eventCards} sizes="(max-width: 639px) 100vw, 46vw" />
+                <CaseStudyImage image={urbanSimulationImages.qualityChart} sizes="(max-width: 639px) 100vw, 46vw" />
               </div>
-              <CaseStudyImage image={urbanSimulationImages.gameBoardNotes} className="mx-auto mt-8 max-w-[931px]" sizes="(max-width: 639px) 100vw, 931px" />
+              <h3 className="mt-8 text-sm font-bold sm:mt-12 sm:text-base">4. Urban Quality Chart</h3>
+              <CaseStudyImage image={urbanSimulationImages.gameBoardNotes} className="mx-auto mt-5 max-w-[931px]" sizes="(max-width: 639px) 100vw, 931px" />
             </section>
 
             <section aria-labelledby="game-board-title" className="pt-2">
-              <CaseStudySectionHeading id="game-board-title" size="large">5. Game board</CaseStudySectionHeading>
+              <h3 id="game-board-title" className="text-sm font-bold sm:text-base">5. Game board</h3>
               <p className="mt-5 max-w-[1160px] text-xs leading-[1.45] sm:text-sm">The game board utilizes an abstracted land-use map to represent the city&apos;s zoning. The map has been simplified to display how the city is organized. The color coding and zones remain identical to an actual city land-use map. These zones include Residential, Commercial, Industrial, Public, Defense, Utilities, Parks, Transport, Forest, Water, Agriculture, Railways, and Roads. Another feature of the game is site value, which constantly changes based on many factors.</p>
               <div className="mt-7 grid items-start gap-7 sm:grid-cols-[1.83fr_1fr] sm:gap-8">
                 <CaseStudyImage image={urbanSimulationImages.gameBoard} sizes="(max-width: 639px) 100vw, (max-width: 1023px) 60vw, 780px" />
