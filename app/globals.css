@@ -39,8 +39,9 @@ body {
 }
 
 .font-handwriting {
-  font-family: 'Bradley Hand', 'Segoe Print', 'Comic Sans MS', cursive;
-  font-style: italic;
+  font-family: 'Bradley Hand', 'Segoe Print', 'Comic Sans MS', 'Chalkboard SE',
+    'Marker Felt', 'Dancing Script', 'Coming Soon', 'Handlee', cursive;
+  font-style: normal;
 }
 
 .sticky-note {
