@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import Footer from "./components/Footer";
 import "./globals.css";
+import { defaultDescription, defaultTitle, siteUrl } from "./seo";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -10,13 +11,9 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.chandrabhanudosapati.in"),
-  title: "Chandra Bhanu | Portfolio",
-  description:
-    "Portfolio of Chandra Bhanu, featuring architecture, board game, experience, UX, and visual design work.",
-  alternates: {
-    canonical: "/",
-  },
+  metadataBase: new URL(siteUrl),
+  title: defaultTitle,
+  description: defaultDescription,
   icons: {
     icon: [{ url: "/icon.svg?v=2", type: "image/svg+xml" }],
     shortcut: [{ url: "/favicon.ico?v=2", type: "image/x-icon" }],
