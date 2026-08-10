@@ -11,6 +11,9 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --font-handwriting-stack: 'Portfolio Handwriting', 'Bradley Hand', 'Segoe Print',
+    'Comic Sans MS', 'Chalkboard SE', 'Marker Felt', 'Dancing Script',
+    'Coming Soon', 'Handlee', cursive;
 }
 
 @theme inline {
@@ -39,8 +42,7 @@ body {
 }
 
 .font-handwriting {
-  font-family: 'Bradley Hand', 'Segoe Print', 'Comic Sans MS', 'Chalkboard SE',
-    'Marker Felt', 'Dancing Script', 'Coming Soon', 'Handlee', cursive;
+  font-family: var(--font-handwriting-stack);
   font-style: normal;
 }
 
