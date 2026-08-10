@@ -5,7 +5,7 @@ import { inquiryNotes, investigationCards } from './tokyo-data';
 export default function TokyoAntiLibraryPage() {
   return (
     <main className="min-h-screen overflow-x-hidden bg-[#f2f2f2] text-black">
-      <div className="bg-white py-4 sm:py-6 lg:py-8">
+      <div className="bg-white pb-4 sm:pb-6 lg:pb-8">
         <div className="relative aspect-[4/1] w-full overflow-hidden bg-neutral-200">
           <Image src="/images/tokyo-anti-library.png" alt="Tokyo Anti-Library public library concept" fill priority sizes="100vw" className="object-cover object-center" />
         </div>

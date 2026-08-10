@@ -19,7 +19,7 @@ export default function SankalpSchoolPage() {
 
   return (
     <main className="min-h-screen overflow-x-hidden bg-[#f2f2f2] text-black">
-      <div className="bg-white py-4 sm:py-6 lg:py-8">
+      <div className="bg-white pb-4 sm:pb-6 lg:pb-8">
         <CaseStudyImage image={sankalpHeaderBanner} priority sizes="100vw" frame="none" />
 
         <article className="mx-auto max-w-[1260px] px-4 pb-16 pt-5 sm:px-8 sm:pb-24 sm:pt-7 lg:px-8 xl:px-0">

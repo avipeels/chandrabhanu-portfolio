@@ -17,7 +17,7 @@ import {
 export default function IndianCitiesNavigationPage() {
   return (
     <main className="min-h-screen overflow-x-hidden bg-[#f2f2f2] text-black">
-      <div className="bg-white py-4 sm:py-6 lg:py-8">
+      <div className="bg-white pb-4 sm:pb-6 lg:pb-8">
         <div className="relative aspect-[1728/449] w-full overflow-hidden bg-neutral-100">
           <Image src={indianCitiesBanner.src} alt={indianCitiesBanner.alt} fill priority sizes="100vw" className="object-cover" />
         </div>
