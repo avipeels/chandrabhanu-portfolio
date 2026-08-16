@@ -8,17 +8,7 @@ const homeActions = [
 
 export default function Homepage() {
   return (
-    <main className="relative isolate overflow-hidden bg-[#f7f7f7] text-black">
-      <div aria-hidden="true" className="absolute inset-0 -z-20 overflow-hidden">
-        <Image
-          src="/images/v2/home-paper-texture.jpg"
-          alt=""
-          fill
-          sizes="100vw"
-          className="scale-125 object-cover opacity-50 lg:rotate-[-90deg]"
-        />
-      </div>
-
+    <main className="paper-background relative isolate overflow-hidden text-black">
       <section aria-label="Portfolio introduction">
         <div className="relative aspect-[1728/378] min-h-28 w-full overflow-hidden sm:min-h-40 lg:min-h-0">
           <Image
