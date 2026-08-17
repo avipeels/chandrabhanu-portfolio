@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { beliefs, disciplines, identityLabels, inspiration, journey, whoAmIImages } from './about-v2-data';
+import { beliefs, desktopDisciplineLayout, disciplines, identityLabels, inspiration, journey, whoAmIImages } from './about-v2-data';
 
 function SectionTitle({ children, id }: { children: React.ReactNode; id: string }) {
   return (
@@ -47,7 +47,7 @@ function JourneyEntry({ entry }: { entry: { year: string; detail: string } }) {
 }
 
 function JourneyDisciplineConnector({ index }: { index: number }) {
-  const linePositions = [46, 49, 38.5, 72, 64, 59, 54, 47] as const;
+  const linePositions = [59, 73, 67, 68, 64, 71, 73, 64] as const;
   const start = linePositions[index];
   const end = linePositions[index + 1];
 
@@ -134,30 +134,45 @@ export default function AboutPage() {
         </div>
 
         <ol className="mt-16 hidden list-none gap-y-9 lg:grid">
-          {journey.map((entry, index) => (
-            <li key={entry.year} className="relative grid grid-cols-[minmax(280px,0.38fr)_minmax(0,1fr)] items-start gap-20 text-[22px] leading-[1.55]">
-              <JourneyDisciplineConnector index={index} />
-              <div className="relative z-10 flex flex-col items-start gap-4 pt-0.5">
-                <span className="bg-[#d9d9d9] px-7 py-2 font-handwriting text-xl shadow-[-2px_3px_4px_rgba(0,0,0,0.16)]">{disciplines[index]}</span>
-                {index === journey.length - 1 && disciplines.slice(journey.length).map((discipline) => (
-                  <span key={discipline} className="bg-[#d9d9d9] px-7 py-2 font-handwriting text-xl shadow-[-2px_3px_4px_rgba(0,0,0,0.16)]">{discipline}</span>
-                ))}
-              </div>
-              <JourneyEntry entry={entry} />
-            </li>
-          ))}
+          {disciplines.map((discipline, index) => {
+            const layout = desktopDisciplineLayout[index];
+            const entry = layout.journeyIndex === undefined ? undefined : journey[layout.journeyIndex];
+
+            return (
+              <li key={discipline} className="relative grid grid-cols-[280px_minmax(0,1fr)] items-start gap-4 text-[22px] leading-[1.55]">
+                <JourneyDisciplineConnector index={index} />
+                <div className="relative z-10 pt-0.5" style={{ marginLeft: layout.offset, transform: `translateY(${layout.offsetY})` }}>
+                  <span className="bg-[#d9d9d9] px-7 py-2 font-handwriting text-xl shadow-[-2px_3px_4px_rgba(0,0,0,0.16)]">{discipline}</span>
+                </div>
+                {entry && <JourneyEntry entry={entry} />}
+              </li>
+            );
+          })}
         </ol>
       </section>
 
       <ImageBand src="/images/v2/about/inspiration-band.jpg" />
-      <section aria-labelledby="inspiration-title" className="mx-auto max-w-[1155px] px-5 py-14 sm:px-8 lg:py-24">
+      <section aria-labelledby="inspiration-title" className="mx-auto max-w-[1536px] px-5 py-14 sm:px-8 lg:py-24">
         <SectionTitle id="inspiration-title">What inspires me?</SectionTitle>
-        <div className="mt-10 border-l border-t border-black/60 p-5 sm:ml-12 lg:mt-16 lg:p-10">
-          <div className="flex flex-wrap gap-4 sm:gap-8">
-            {inspiration.books.map((book) => <Image key={book.src} src={book.src} alt={book.alt} width={172} height={246} className="h-auto w-24 object-cover shadow-[-3px_4px_5px_rgba(0,0,0,0.24)] sm:w-32" sizes="128px" />)}
+        <div className="mt-10 grid gap-8 lg:hidden">
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-8">
+            {inspiration.books.map((book) => <Image key={book.src} src={book.src} alt={book.alt} width={172} height={246} className="h-auto w-24 object-cover sm:w-32" sizes="128px" />)}
           </div>
-          <div className="mt-8 flex flex-wrap justify-end gap-3 sm:gap-5">
-            {inspiration.films.map((film) => <Image key={film.src} src={film.src} alt={film.alt} width={189} height={189} className="size-16 rounded-full object-cover shadow-[-2px_3px_4px_rgba(0,0,0,0.2)] sm:size-24 lg:size-[130px]" sizes="130px" />)}
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-8">
+            {inspiration.films.map((film) => <Image key={film.src} src={film.src} alt={film.alt} width={189} height={189} className="size-16 rounded-full object-cover shadow-[-2px_3px_4px_rgba(0,0,0,0.2)] sm:size-24" sizes="96px" />)}
+          </div>
+        </div>
+        <div className="relative mt-16 hidden h-[475px] max-w-[1280px] lg:block">
+          <span aria-hidden="true" className="absolute left-[75px] right-0 top-[88px] border-t border-black/60" />
+          <span aria-hidden="true" className="absolute left-[75px] top-[88px] h-[282px] border-l border-black/60" />
+          <span aria-hidden="true" className="absolute right-0 top-[88px] h-[282px] border-l border-black/60" />
+          <span aria-hidden="true" className="absolute left-[75px] right-0 top-[370px] border-t border-black/60" />
+
+          <div className="absolute left-0 top-0 flex gap-11">
+            {inspiration.books.map((book) => <Image key={book.src} src={book.src} alt={book.alt} width={172} height={246} className="h-auto w-[150px] object-cover" sizes="150px" />)}
+          </div>
+          <div className="absolute left-[260px] top-[283px] flex gap-11">
+            {inspiration.films.map((film) => <Image key={film.src} src={film.src} alt={film.alt} width={189} height={189} className="size-[175px] rounded-full object-cover shadow-[-2px_3px_4px_rgba(0,0,0,0.2)]" sizes="175px" />)}
           </div>
         </div>
       </section>
