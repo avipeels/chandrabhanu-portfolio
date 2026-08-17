@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { beliefs, disciplines, identityLabels, inspiration, journey, whoAmIImages } from './about-v2-data';
+import { beliefs, desktopDisciplineLayout, disciplines, identityLabels, inspiration, journey, whoAmIImages } from './about-v2-data';
 
 function SectionTitle({ children, id }: { children: React.ReactNode; id: string }) {
   return (
@@ -47,7 +47,7 @@ function JourneyEntry({ entry }: { entry: { year: string; detail: string } }) {
 }
 
 function JourneyDisciplineConnector({ index }: { index: number }) {
-  const linePositions = [46, 49, 38.5, 72, 64, 59, 54, 47] as const;
+  const linePositions = [59, 73, 67, 68, 64, 71, 73, 64] as const;
   const start = linePositions[index];
   const end = linePositions[index + 1];
 
@@ -134,18 +134,20 @@ export default function AboutPage() {
         </div>
 
         <ol className="mt-16 hidden list-none gap-y-9 lg:grid">
-          {journey.map((entry, index) => (
-            <li key={entry.year} className="relative grid grid-cols-[minmax(280px,0.38fr)_minmax(0,1fr)] items-start gap-20 text-[22px] leading-[1.55]">
-              <JourneyDisciplineConnector index={index} />
-              <div className="relative z-10 flex flex-col items-start gap-4 pt-0.5">
-                <span className="bg-[#d9d9d9] px-7 py-2 font-handwriting text-xl shadow-[-2px_3px_4px_rgba(0,0,0,0.16)]">{disciplines[index]}</span>
-                {index === journey.length - 1 && disciplines.slice(journey.length).map((discipline) => (
-                  <span key={discipline} className="bg-[#d9d9d9] px-7 py-2 font-handwriting text-xl shadow-[-2px_3px_4px_rgba(0,0,0,0.16)]">{discipline}</span>
-                ))}
-              </div>
-              <JourneyEntry entry={entry} />
-            </li>
-          ))}
+          {disciplines.map((discipline, index) => {
+            const layout = desktopDisciplineLayout[index];
+            const entry = layout.journeyIndex === undefined ? undefined : journey[layout.journeyIndex];
+
+            return (
+              <li key={discipline} className="relative grid grid-cols-[280px_minmax(0,1fr)] items-start gap-4 text-[22px] leading-[1.55]">
+                <JourneyDisciplineConnector index={index} />
+                <div className="relative z-10 pt-0.5" style={{ marginLeft: layout.offset, transform: `translateY(${layout.offsetY})` }}>
+                  <span className="bg-[#d9d9d9] px-7 py-2 font-handwriting text-xl shadow-[-2px_3px_4px_rgba(0,0,0,0.16)]">{discipline}</span>
+                </div>
+                {entry && <JourneyEntry entry={entry} />}
+              </li>
+            );
+          })}
         </ol>
       </section>
 

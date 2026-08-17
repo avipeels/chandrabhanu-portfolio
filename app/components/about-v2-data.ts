@@ -19,6 +19,17 @@ export const disciplines = [
   'UX Designer',
 ] as const;
 
+export const desktopDisciplineLayout = [
+  { journeyIndex: 0, offset: '22px', offsetY: '0px' },
+  { journeyIndex: 1, offset: '68px', offsetY: '0px' },
+  { journeyIndex: 2, offset: '48px', offsetY: '0px' },
+  { journeyIndex: 3, offset: '0px', offsetY: '0px' },
+  { journeyIndex: 4, offset: '0px', offsetY: '0px' },
+  { journeyIndex: 5, offset: '23px', offsetY: '0px' },
+  { journeyIndex: undefined, offset: '55px', offsetY: '0px' },
+  { journeyIndex: 6, offset: '35px', offsetY: '-8px' },
+] as const;
+
 export const journey: readonly JourneyEntry[] = [
   { year: '2012', detail: 'Bachelors in Architecture (B.Arch.), CEPT University, Ahmedabad' },
   { year: '2016', detail: 'Exchange program, ETH, Zurich' },
@@ -34,10 +45,10 @@ export const whoAmIImages = [
   { src: '/images/v2/about/who-am-i-02.png', alt: 'Chandra holding a stone outdoors', label: 'Maker' },
   { src: '/images/v2/about/who-am-i-03.png', alt: 'Portrait of Chandra', label: 'Explorer' },
   { src: '/images/v2/about/who-am-i-04.png', alt: 'Chandra outdoors with a companion by the sea', label: 'Mother to a toddler' },
-  { src: '/images/v2/about/who-am-i-05.jpg', alt: 'Chandra leaning from an architectural wall', label: 'Quick learner' },
+  { src: '/images/v2/about/who-am-i-05.jpg', alt: 'Chandra leaning from an architectural wall', label: 'Loves Photography' },
 ] as const;
 
-export const identityLabels = ['Thinker', 'Mother to a toddler', 'Hardworker', 'Loves Photography', 'Explorer'] as const;
+export const identityLabels = ['Thinker', 'Hardworker', 'Designer', 'Quick learner', 'Researcher'] as const;
 
 export const inspiration = {
   books: [
