@@ -46,6 +46,21 @@ function JourneyEntry({ entry }: { entry: { year: string; detail: string } }) {
   );
 }
 
+function JourneyMilestone({ labels, entry }: { labels: readonly string[]; entry: { year: string; detail: string } }) {
+  return (
+    <div>
+      <ul aria-label={`Disciplines for ${entry.year}`} className="mb-3 flex flex-wrap gap-3">
+        {labels.map((label) => (
+          <li key={label} className="bg-[#d9d9d9] px-4 py-2 font-handwriting text-base shadow-[-2px_3px_4px_rgba(0,0,0,0.16)] lg:px-7 lg:text-xl">
+            {label}
+          </li>
+        ))}
+      </ul>
+      <JourneyEntry entry={entry} />
+    </div>
+  );
+}
+
 function JourneyDisciplineConnector({ index }: { index: number }) {
   const linePositions = [59, 73, 67, 68, 64, 71, 73, 64] as const;
   const start = linePositions[index];
@@ -65,7 +80,7 @@ export default function AboutPage() {
     <main className="paper-background relative isolate min-h-screen flex-1 overflow-hidden text-black">
       <ImageBand src="/images/v2/about/top-band.png" />
 
-      <nav aria-label="Primary navigation" className="mx-auto flex max-w-[1566px] justify-end gap-12 px-5 py-6 font-montserrat text-base font-semibold leading-none tracking-[-0.02em] sm:px-8 lg:gap-[84px] lg:px-0 lg:py-7">
+      <nav aria-label="Primary navigation" className="mx-auto flex max-w-[1566px] justify-end gap-12 px-5 py-6 font-montserrat text-base font-semibold leading-none tracking-[-0.02em] sm:px-8 lg:gap-[84px] lg:py-7">
         <Link href="/" className="transition-opacity hover:opacity-60 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-black">Home</Link>
         <Link href="/projects" className="transition-opacity hover:opacity-60 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-black">Work</Link>
       </nav>
@@ -124,14 +139,13 @@ export default function AboutPage() {
       <ImageBand src="/images/v2/about/journey-band.jpg" />
       <section aria-labelledby="journey-title" className="mx-auto max-w-[1536px] px-5 py-14 sm:px-8 lg:py-24">
         <SectionTitle id="journey-title">What my journey looks like?</SectionTitle>
-        <div className="mt-10 grid gap-10 lg:hidden">
-          <ul className="flex flex-wrap content-start gap-3">
-            {disciplines.map((discipline) => <li key={discipline} className="bg-[#d9d9d9] px-4 py-2 font-handwriting text-base shadow-[-2px_3px_4px_rgba(0,0,0,0.16)] lg:px-7 lg:text-xl">{discipline}</li>)}
-          </ul>
-          <ol className="list-none space-y-6">
-            {journey.map((entry) => <li key={entry.year} className="text-base leading-7"><JourneyEntry entry={entry} /></li>)}
-          </ol>
-        </div>
+        <ol className="mt-10 list-none space-y-8 text-base leading-7 lg:hidden">
+          {journey.map((entry, journeyIndex) => {
+            const labels = disciplines.filter((_, index) => desktopDisciplineLayout[index].journeyIndex === journeyIndex || (journeyIndex === journey.length - 1 && index === 6));
+
+            return <li key={entry.year}><JourneyMilestone labels={labels} entry={entry} /></li>;
+          })}
+        </ol>
 
         <ol className="mt-16 hidden list-none gap-y-9 lg:grid">
           {disciplines.map((discipline, index) => {
