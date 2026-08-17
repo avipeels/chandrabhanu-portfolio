@@ -52,6 +52,7 @@ export const identityLabels = ['Thinker', 'Hardworker', 'Designer', 'Quick learn
 
 export const inspiration = {
   books: [
+    { src: '/images/v2/about/book-01.png', alt: 'A favourite book cover' },
     { src: '/images/v2/about/book-02.png', alt: 'A favourite book cover' },
     { src: '/images/v2/about/book-03.png', alt: 'A favourite book cover' },
   ],
